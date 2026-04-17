@@ -1,0 +1,49 @@
+const request = require('supertest');
+const app = require('../app');
+
+require('./setup');
+
+describe('User Routes', () => {
+
+    test('POST /users - success', async () => {
+        const res = await request(app)
+            .post('/users')
+            .send({
+                name: 'Test User',
+                email: 'test@example.com',
+                password: 'password123'
+            });
+
+        expect(res.statusCode).toBe(201);
+        expect(res.body.email).toBe('test@example.com');
+    });
+
+    test('POST /users - missing fields (error)', async () => {
+        const res = await request(app)
+            .post('/users')
+            .send({ name: 'Bad User' });
+
+        expect(res.statusCode).toBe(400);
+    });
+
+    test('GET /users/:id - success', async () => {
+        const user = await request(app)
+            .post('/users')
+            .send({
+                name: 'Test',
+                email: 'get@test.com',
+                password: '123'
+            });
+
+        const res = await request(app)
+            .get(`/users/${user.body.id}`);
+
+        expect(res.statusCode).toBe(200);
+    });
+
+    test('GET /users/:id - not found', async () => {
+        const res = await request(app).get('/users/999');
+
+        expect(res.statusCode).toBe(404);
+    });
+});
