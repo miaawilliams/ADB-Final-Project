@@ -32,7 +32,7 @@ const user = db.define('user', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    employee: {
+    role: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'employee',

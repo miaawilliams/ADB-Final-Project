@@ -15,19 +15,19 @@ async function seed() {
                 name: 'Admin User',
                 email: 'admin@example.com',
                 password: bcrypt.hashSync('password123', 10),
-                employee: 'admin'
+                role: 'admin'
             },
             {
                 name: 'Manager User',
                 email: 'manager@example.com',
                 password: bcrypt.hashSync('password123', 10),
-                employee: 'manager'
+                role: 'manager'
             },
             {
                 name: 'Employee User',
                 email: 'employee@example.com',
                 password: bcrypt.hashSync('password123', 10),
-                employee: 'employee'
+                role: 'employee'
             }
         ]);
 
