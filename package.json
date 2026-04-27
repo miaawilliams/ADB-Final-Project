@@ -25,7 +25,6 @@
   "homepage": "https://github.com/miaawilliams/ADB-Final-Project#readme",
   "devDependencies": {
     "jest": "^30.3.0",
-    "sqlite3": "^6.0.1",
     "supertest": "^7.2.2"
   },
   "dependencies": {
@@ -35,6 +34,8 @@
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "jsonwebtoken": "^9.0.3",
+    "pg": "^8.20.0",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.8"
   }
 }

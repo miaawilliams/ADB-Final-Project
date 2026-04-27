@@ -1,13 +1,14 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize } = require('sequelize');
 
-const isTest = process.env.NODE_ENV === 'test';
-
-const db = new Sequelize({
-    dialect: 'sqlite',
-    storage: isTest ? ':memory:' : `database/${process.env.DB_NAME}`,
-    logging: false
+const db = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 });
-
 
 
 
