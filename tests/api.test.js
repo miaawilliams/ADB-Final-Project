@@ -4,7 +4,7 @@ process.env.JWT_EXPIRES_IN = '1h';
 const request = require('supertest');
 const bcrypt = require('bcryptjs');
 
-
+const { afterAll, test, expect, beforeAll } = require('@jest/globals');
 const app = require('../app'); 
 const { user, db } = require('../database/setup');
 const jwt = require('jsonwebtoken');
